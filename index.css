@@ -26,7 +26,7 @@ nav {
 
 nav.scrolled {
     background: rgba(0, 0, 0, 0.9);
-    padding: 15px 50px;
+    padding: 15px 20px;
 }
 
 .nav-container {
@@ -51,7 +51,7 @@ nav.scrolled {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .nav-links {
@@ -917,7 +917,7 @@ h2 {
     }
 
     .nav-links {
-        gap: 4px;
+        gap: 10px;
     }
 
     section {
