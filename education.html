@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amirali Daneshvar - Education</title>
+    <link rel="stylesheet" href="index.css">
+    <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <button id="menu-toggle" aria-label="Open menu" class="menu-icon">☰</button>
+                <div class="logo">Education</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-sound="mixkit-game-user-interface-tone-2570.mp3">Home</a></li>
+                <li><a href="index.html#about" data-sound="mixkit-game-user-interface-tone-2570.mp3">About</a></li>
+                <li><a href="index.html#projects" data-sound="mixkit-game-user-interface-tone-2570.mp3">Projects</a>
+                </li>
+                <li><a href="index.html#contact" data-sound="mixkit-game-user-interface-tone-2570.mp3">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="side-panel" class="side-panel">
+        <button id="close-panel" aria-label="Close menu">×</button>
+        <ul>
+            <li><a href="certificates.html">My Certificates</a></li>
+            <li><a href="education.html">My Education</a></li>
+        </ul>
+    </div>
+
+    <section class="fade-in education-container" style="padding-top: 120px;">
+        <h2>My Education</h2>
+        <div id="education-list">
+            <div class="education-card">
+                <div class="education-logo">
+                    <img src="images/biruni_niversitesi_logo.jpeg" alt="Biruni University Logo">
+                </div>
+                <div class="education-info">
+                    <h4>Biruni Üniversitesi</h4>
+                    <div class="education-degree">Computer Engineering</div>
+                    <div class="education-date">Jun 2022 – Present · Istanbul, Turkey</div>
+
+                </div>
+            </div>
+            <div class="education-card">
+                <div class="education-logo">
+                    <img src="images/1735902035140.jpeg" alt="Arel University Logo">
+                </div>
+                <div class="education-info">
+                    <h4>Istanbul Arel University</h4>
+                    <div class="education-degree">Computer Engineering</div>
+                    <div class="education-date">2021 – 2022 · Istanbul, Turkey</div>
+                </div>
+            </div>
+            <!-- Add more education-card blocks as needed -->
+        </div>
+    </section>
+
+    <script src="index.js"></script>
+    <script>
+        // Load education from localStorage
+        function loadEducation() {
+            const education = JSON.parse(localStorage.getItem('education')) || [];
+            const list = document.getElementById('education-list');
+            list.innerHTML = '';
+            education.forEach(edu => {
+                const card = document.createElement('div');
+                card.className = 'certificate-card'; // Reuse certificate-card styling
+                card.innerHTML = `
+                    <div class="certificate-logo"><img src="https://via.placeholder.com/56" alt="${edu.school}"></div>
+                    <div class="certificate-info">
+                        <h4>${edu.degree}</h4>
+                        <p class="certificate-org">${edu.school}</p>
+                        <p class="certificate-date">${edu.field} | ${edu.startDate} - ${edu.endDate}</p>
+                    </div>
+                `;
+                list.appendChild(card);
+            });
+        }
+
+        // Add new education
+        document.getElementById('education-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const education = {
+                school: document.getElementById('education-school').value,
+                degree: document.getElementById('education-degree').value,
+                field: document.getElementById('education-field').value,
+                startDate: document.getElementById('education-start-date').value,
+                endDate: document.getElementById('education-end-date').value
+            };
+            let educationList = JSON.parse(localStorage.getItem('education')) || [];
+            educationList.push(education);
+            localStorage.setItem('education', JSON.stringify(educationList));
+            loadEducation();
+            e.target.reset();
+            document.getElementById('education-start-date').value = '2023-09-01';
+            document.getElementById('education-end-date').value = '2025-07-04';
+        });
+
+        // Initial load
+        window.addEventListener('load', () => {
+            loadEducation();
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+    <audio id="bg-music" src="bg_music/calm-piano-music-351839.mp3" loop></audio>
+    <button id="music-toggle" aria-label="Toggle music"
+        style="position:fixed;bottom:24px;right:24px;z-index:1000;background:rgba(30,30,50,0.8);color:#fff;border:none;border-radius:50%;width:48px;height:48px;cursor:pointer;font-size:1.5rem;box-shadow:0 2px 12px rgba(0,0,0,0.15);">
+        <span id="music-icon">🔊</span>
+    </button>
+</body>
+
+</html>

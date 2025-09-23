@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amirali Daneshvar - Certificates</title>
+    <link rel="stylesheet" href="index.css">
+    <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <button id="menu-toggle" aria-label="Open menu" class="menu-icon">☰</button>
+                <div class="logo">Certificates</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-sound="mixkit-game-user-interface-tone-2570.mp3">Home</a></li>
+                <li><a href="index.html#about" data-sound="mixkit-game-user-interface-tone-2570.mp3">About</a></li>
+                <li><a href="index.html#projects" data-sound="mixkit-game-user-interface-tone-2570.mp3">Projects</a>
+                </li>
+                <li><a href="index.html#contact" data-sound="mixkit-game-user-interface-tone-2570.mp3">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="side-panel" class="side-panel">
+        <button id="close-panel" aria-label="Close menu">×</button>
+        <ul>
+            <li><a href="certificates.html">My Certificates</a></li>
+            <li><a href="education.html">My Education</a></li>
+        </ul>
+    </div>
+
+    <section class="fade-in certificates-container" style="padding-top: 120px;">
+        <h2>My Certificates</h2>
+        <div id="certificates-list">
+            <!-- coursera -->
+            <div class="certificate-card">
+                <div class="certificate-logo">
+                    <img src="certificates/coursera_logo.jpeg" alt="Coursera Logo">
+                </div>
+                <div class="certificate-info">
+                    <h4>Graphic design: pop your Linkedin with 3D effect using Canva</h4>
+                    <div class="certificate-org">Coursera</div>
+                    <div class="certificate-date">Issued Jun 2025 · Credential ID BVAVYFGRH0DB</div>
+                    <a class="certificate-link" href="https://coursera.org/share/2e815c6a9e86812fbc3de6a9709176bf"
+                        target="_blank">Show credential</a>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <div class="certificate-logo">
+                    <img src="certificates/coursera_logo.jpeg" alt="Coursera Logo">
+                </div>
+                <div class="certificate-info">
+                    <h4>Search Engine Optimization (SEO) with Squarespace</h4>
+                    <div class="certificate-org">Coursera</div>
+                    <div class="certificate-date">Issued Jun 2025 · Credential ID BVAVYFGRH0DB</div>
+                    <a class="certificate-link" href="https://coursera.org/share/3900f7ab061869d182b4a0102ef3f702"
+                        target="_blank">Show credential</a>
+                </div>
+            </div>
+            <!-- sololearn -->
+            <div class="certificate-card">
+                <div class="certificate-logo">
+                    <img src="certificates/sololearn_inc__logo.jpeg" alt="Coursera Logo">
+                </div>
+                <div class="certificate-info">
+                    <h4>Java introduction certificate</h4>
+                    <div class="certificate-org">Sololearn</div>
+                    <div class="certificate-date">Issued jan 2025 · Credential ID CC-ZZFM7KKC</div>
+                    <a class="certificate-link" href="https://www.sololearn.com/certificates/CC-ZZFM7KKC"
+                        target="_blank">Show credential</a>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <div class="certificate-logo">
+                    <img src="certificates/sololearn_inc__logo.jpeg" alt="Coursera Logo">
+                </div>
+                <div class="certificate-info">
+                    <h4>Sql intermediate certificate </h4>
+                    <div class="certificate-org">Sololearn</div>
+                    <div class="certificate-date">Issued jan 2025 · Credential ID CC-3CWXVWDL</div>
+                    <a class="certificate-link" href="https://www.sololearn.com/certificates/CC-3CWXVWDL"
+                        target="_blank">Show credential</a>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <div class="certificate-logo">
+                    <img src="certificates/sololearn_inc__logo.jpeg" alt="Coursera Logo">
+                </div>
+                <div class="certificate-info">
+                    <h4>Sql introduction certificate </h4>
+                    <div class="certificate-org">Sololearn</div>
+                    <div class="certificate-date">Issued jan 2025 · Credential ID CC-YCHJAU34</div>
+                    <a class="certificate-link" href="https://www.sololearn.com/certificates/CC-YCHJAU34"
+                        target="_blank">Show credential</a>
+                </div>
+            </div>
+            <!-- Repeat .certificate-card for each certificate -->
+        </div>
+    </section>
+
+    <script src="index.js"></script>
+    <script>
+        // Load certificates from localStorage
+        function loadCertificates() {
+            const certificates = JSON.parse(localStorage.getItem('certificates')) || [];
+            const grid = document.getElementById('certificates-grid');
+            grid.innerHTML = '';
+            certificates.forEach(cert => {
+                const card = document.createElement('div');
+                card.className = 'certificate-card';
+                card.innerHTML = `
+                    <img src="${cert.image}" alt="${cert.title}">
+                    <h4>${cert.title}</h4>
+                    <p>${cert.org}</p>
+                    <span>Issued: ${cert.date}</span>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Add new certificate
+        document.getElementById('certificate-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const certificate = {
+                image: document.getElementById('certificate-image').value,
+                title: document.getElementById('certificate-title').value,
+                org: document.getElementById('certificate-org').value,
+                date: document.getElementById('certificate-date').value
+            };
+            let certificates = JSON.parse(localStorage.getItem('certificates')) || [];
+            certificates.push(certificate);
+            localStorage.setItem('certificates', JSON.stringify(certificates));
+            loadCertificates();
+            e.target.reset();
+        });
+
+        // Initial load
+        window.addEventListener('load', () => {
+            loadCertificates();
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+    <audio id="bg-music" src="bg_music/calm-piano-music-351839.mp3" loop></audio>
+    <button id="music-toggle" aria-label="Toggle music"
+        style="position:fixed;bottom:24px;right:24px;z-index:1000;background:rgba(30,30,50,0.8);color:#fff;border:none;border-radius:50%;width:48px;height:48px;cursor:pointer;font-size:1.5rem;box-shadow:0 2px 12px rgba(0,0,0,0.15);">
+        <span id="music-icon">🔊</span>
+    </button>
+</body>
+
+</html>
