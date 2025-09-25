@@ -217,6 +217,14 @@ document.getElementById('menu-toggle').addEventListener('click', () => {
 document.getElementById('close-panel').addEventListener('click', () => {
     document.getElementById('side-panel').classList.remove('open');
 });
+
+// Close panel when clicking on navigation links
+document.querySelectorAll('.side-panel a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('side-panel').classList.remove('open');
+    });
+});
+
 // Optional: close panel when clicking outside
 document.addEventListener('click', (e) => {
     const panel = document.getElementById('side-panel');
