@@ -33,6 +33,10 @@ body {
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Mobile optimizations */
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 /* Modern browsers with CSS custom properties support */
@@ -1055,11 +1059,26 @@ h2 {
     transition: all 0.3s ease;
     padding: 8px;
     border-radius: 4px;
+    display: none;
+    /* Hidden by default, shown on mobile */
+    min-width: 44px;
+    /* Touch-friendly size */
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .menu-icon:hover {
     color: var(--accent-primary);
     background: rgba(255, 255, 255, 0.05);
+}
+
+/* Show menu icon on mobile */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: flex;
+    }
 }
 
 /* Sidebar panel styles */
@@ -1289,94 +1308,440 @@ h2 {
     opacity: 0.8;
 }
 
-/* Responsive Design */
+/* Mobile Navigation */
 @media (max-width: 768px) {
-    nav {
-        padding: 24px 24px;
-    }
 
+    /* Hide desktop navigation on mobile */
     .nav-links {
-        gap: 32px;
-    }
-
-    section {
-        padding: 120px 24px;
-    }
-
-    .about-content {
-        flex-direction: column;
-        gap: 80px;
-    }
-
-    .skills {
-        flex-direction: row;
-        align-items: stretch;
-        gap: 20px;
-        overflow-x: auto;
-        padding: 0 20px;
-        justify-content: flex-start;
-        scroll-behavior: smooth;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-    }
-
-    .skills::-webkit-scrollbar {
         display: none;
     }
 
-    .skill-group {
-        flex: 0 0 280px;
-        max-width: 280px;
-        min-width: 280px;
+    /* Show mobile menu icon */
+    .menu-icon {
+        display: block;
     }
 
-    /* Modern browsers with CSS Grid support */
-    @supports (display: grid) {
-        .skills {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            overflow-x: visible;
-            padding: 0;
-        }
+    nav {
+        padding: 16px 20px;
+    }
+
+    nav.scrolled {
+        padding: 12px 20px;
+    }
+
+    .nav-container {
+        justify-content: space-between;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+}
+
+/* Mobile Hero Section */
+@media (max-width: 768px) {
+    .hero {
+        padding: 0 20px;
+        min-height: 100vh;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding: 0 10px;
     }
 
     .hero h1 {
-        font-size: clamp(2rem, 8vw, 3rem);
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+        margin-bottom: 24px;
+        line-height: 1.1;
     }
 
     .hero p {
-        font-size: 0.875rem;
+        font-size: 0.9rem;
+        margin-bottom: 40px;
+        line-height: 1.4;
     }
 
     .hero-buttons {
         flex-direction: column;
         gap: 16px;
+        margin-top: 32px;
+        width: 100%;
+    }
+
+    .cta-button {
+        padding: 16px 24px;
+        font-size: 14px;
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+
+    .cv-download {
+        justify-content: center;
+    }
+}
+
+/* Mobile About Section */
+@media (max-width: 768px) {
+    section {
+        padding: 80px 20px;
+    }
+
+    h2 {
+        font-size: clamp(1.3rem, 5vw, 1.8rem);
+        margin-bottom: 60px;
+        letter-spacing: 2px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .about-text {
+        max-width: 100%;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .about-intro h3 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
+    .about-skills h4,
+    .about-philosophy h4,
+    .about-passions h4 {
+        font-size: 0.9rem;
+        margin: 20px 0 8px 0;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+    }
+
+    .profile-glow {
+        width: 250px;
+        height: 250px;
+        margin: 0 auto;
+    }
+
+    .about-profile {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Mobile Skills Section */
+@media (max-width: 768px) {
+    .skills {
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 40px;
+        padding: 0;
+    }
+
+    .skill-group {
+        flex: none;
+        max-width: 100%;
+        min-width: auto;
+        padding: 24px 20px;
+    }
+
+    .skill-group h3 {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+
+    .skill {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+
+    /* Modern browsers with CSS Grid support */
+    @supports (display: grid) {
+        .skills {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+    }
+}
+
+/* Mobile Projects Section */
+@media (max-width: 768px) {
+    .projects-carousel-wrapper {
+        padding: 0 10px;
+    }
+
+    .projects-arrow {
+        display: none;
+        /* Hide arrows on mobile for cleaner look */
+    }
+
+    .projects-grid {
+        gap: 20px;
+        padding: 20px 0;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    }
+
+    .project-card {
+        flex: 0 0 90vw;
+        max-width: 90vw;
+        scroll-snap-align: center;
+    }
+
+    .project-carousel {
+        height: 200px;
+    }
+
+    .project-content {
+        padding: 24px 20px;
+    }
+
+    .project-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+
+    .tech-tag {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Mobile Contact Section */
+@media (max-width: 768px) {
+    .contact-content {
+        padding: 0 20px;
+    }
+
+    .social-links {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .social-links a {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+        padding: 12px;
+    }
+}
+
+/* Mobile Typography and Spacing */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .site-footer {
+        padding: 30px 20px 24px 20px;
+        font-size: 0.85rem;
+        margin-top: 60px;
+    }
+
+    /* Music toggle button */
+    #music-toggle {
+        bottom: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    nav {
+        padding: 12px 16px;
+    }
+
+    .logo {
+        font-size: 0.9rem;
+    }
+
+    section {
+        padding: 60px 16px;
+    }
+
+    .hero {
+        padding: 0 16px;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.5rem, 7vw, 2rem);
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 0.85rem;
+        margin-bottom: 32px;
+    }
+
+    .hero-buttons {
         margin-top: 24px;
     }
 
     .cta-button {
-        padding: 14px 28px;
+        padding: 14px 20px;
         font-size: 13px;
-        width: 100%;
-        max-width: 280px;
+        max-width: 260px;
+    }
+
+    h2 {
+        font-size: clamp(1.2rem, 4vw, 1.5rem);
+        margin-bottom: 40px;
+    }
+
+    .about-text {
+        font-size: 0.9rem;
+    }
+
+    .profile-glow {
+        width: 200px;
+        height: 200px;
+    }
+
+    .about-profile {
+        width: 160px;
+        height: 160px;
+    }
+
+    .skill-group {
+        padding: 20px 16px;
+    }
+
+    .skill {
+        padding: 8px 14px;
+        font-size: 0.85rem;
     }
 
     .project-card {
-        flex: 0 0 85vw;
+        flex: 0 0 95vw;
+        max-width: 95vw;
     }
 
-    .projects-grid {
-        gap: 40px;
+    .project-carousel {
+        height: 180px;
+    }
+
+    .project-content {
+        padding: 20px 16px;
     }
 
     .social-links {
-        gap: 32px;
+        gap: 16px;
     }
 
     .social-links a {
-        width: 36px;
-        height: 36px;
-        font-size: 18px;
+        width: 44px;
+        height: 44px;
+        font-size: 16px;
+    }
+
+    #music-toggle {
+        bottom: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Additional Mobile Optimizations */
+@media (max-width: 768px) {
+
+    /* Improve touch targets */
+    .cta-button,
+    .social-links a,
+    .carousel-nav,
+    .projects-arrow {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Better scrolling on mobile */
+    .projects-grid {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+
+    /* Improve carousel touch interactions */
+    .carousel-container {
+        touch-action: pan-x;
+    }
+
+    /* Better spacing for mobile */
+    .about-intro,
+    .about-skills,
+    .about-philosophy,
+    .about-passions {
+        margin-bottom: 24px;
+    }
+
+    /* Improve side panel for mobile */
+    .side-panel {
+        width: 100vw;
+        max-width: 300px;
+        padding: 80px 24px 32px 24px;
+    }
+
+    .side-panel ul li a {
+        padding: 16px 20px;
+        font-size: 1.1rem;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+        margin-bottom: 16px;
+    }
+
+    .hero p {
+        margin-bottom: 24px;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+        gap: 16px;
+        margin-top: 20px;
+    }
+
+    .cta-button {
+        max-width: 200px;
+    }
+
+    section {
+        padding: 60px 20px;
+    }
+
+    h2 {
+        margin-bottom: 40px;
+    }
+}
+
+/* High DPI mobile devices */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+
+    .about-profile,
+    .carousel-slide img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
     }
 }
 
