@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Test - GitHub Pages Debug</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .test-box {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .success {
+            color: #4ecdc4;
+        }
+
+        .error {
+            color: #ff6b6b;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>GitHub Pages Debug Test</h1>
+
+    <div class="test-box">
+        <h2>Basic CSS Test</h2>
+        <p class="success">✅ If you can see this styled text, basic CSS is working!</p>
+    </div>
+
+    <div class="test-box">
+        <h2>File Loading Test</h2>
+        <p>Testing if main CSS file loads:</p>
+        <link rel="stylesheet" href="index.css">
+        <p class="success">✅ Main CSS file linked (check if styles are applied)</p>
+    </div>
+
+    <div class="test-box">
+        <h2>Image Test</h2>
+        <p>Testing if images load:</p>
+        <img src="icons/earth.svg" alt="Earth icon" style="width: 50px; height: 50px;">
+        <p class="success">✅ If you see an icon above, images are loading!</p>
+    </div>
+
+    <div class="test-box">
+        <h2>JavaScript Test</h2>
+        <p>Testing if JavaScript loads:</p>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const jsTest = document.createElement('p');
+                jsTest.innerHTML = '✅ JavaScript is working!';
+                jsTest.className = 'success';
+                document.querySelector('.test-box:last-child').appendChild(jsTest);
+            });
+        </script>
+    </div>
+
+    <div class="test-box">
+        <h2>Navigation Test</h2>
+        <p><a href="index.html" style="color: #4ecdc4;">← Back to Main Site</a></p>
+    </div>
+</body>
+
+</html>

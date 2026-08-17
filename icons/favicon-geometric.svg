@@ -1,0 +1,21 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="url(#bgGradient)"/>
+  
+  <!-- Geometric A shape -->
+  <path d="M16 6 L24 26 L20 26 L18 20 L14 20 L12 26 L8 26 L16 6 Z M16 10 L14 18 L18 18 L16 10 Z" fill="url(#textGradient)"/>
+  
+  <!-- Subtle highlight -->
+  <path d="M16 6 L24 26 L20 26 L18 20 L14 20 L12 26 L8 26 L16 6 Z M16 10 L14 18 L18 18 L16 10 Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+  
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f0f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#141622;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>
