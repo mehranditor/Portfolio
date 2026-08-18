@@ -3,7 +3,7 @@
 This is my personal portfolio website showcasing my skills, projects, and experience as a Creative Developer and Computer Engineering student.
 
 ## 🚀 Live Website
-Visit: [Your GitHub Pages URL]
+Visit: [https://mehrandittor.com.tr/]
 
 ## 📁 Project Structure
 ```
