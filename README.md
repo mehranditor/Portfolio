@@ -45,4 +45,4 @@ npx serve .
 ```
 
 ## 📄 License
-© 2025 Amirali Daneshvar. All rights reserved.
+© 2026 Amirali Daneshvar. All rights reserved.
