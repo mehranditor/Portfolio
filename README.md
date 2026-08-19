@@ -9,8 +9,8 @@ Visit: [https://mehrandittor.com.tr/]
 ## 📸 Screenshots
 
 | Home Page | About Me | Projects |
-|--------------|------------------|
-| ![Portfolio Home](home.png) | ![About](about.png) || ![Projects](projects.png)
+|--------------|------------------|------------------|
+| ![Portfolio Home](home.png) | ![About](about.png) | ![Projects](projects.png)|
 
 
 ## 📁 Project Structure
