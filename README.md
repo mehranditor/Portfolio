@@ -2,18 +2,18 @@
 
 This is my personal portfolio website showcasing my skills, projects, and experience as a Creative Developer and Computer Engineering student.
 
-## 🚀 Live Website
+## 🔴 Live Website
 Visit: [https://mehrandittor.com.tr/]
 
 ---
-## 📸 Screenshots
+##  Screenshots
 
 | Home Page | About Me | Projects |
 |--------------|------------------|------------------|
 | ![Portfolio Home](home.png) | ![About](about.png) | ![Projects](projects.png)|
 
 
-## 📁 Project Structure
+##  Project Structure
 ```
 webpractice/
 ├── index.html          # Main page
@@ -27,14 +27,14 @@ webpractice/
 └── bg_music/           # Background music
 ```
 
-## 🛠️ Technologies Used
+##  Technologies Used
 - HTML5
 - CSS3 (with modern features)
 - JavaScript (ES6+)
 - Responsive Design
 - Modern CSS Grid & Flexbox
 
-## 📱 Features
+##  Features
 - Responsive design for all devices
 - Modern animations and transitions
 - Interactive project carousels
@@ -42,7 +42,7 @@ webpractice/
 - Dark theme with modern aesthetics
 - Smooth scrolling navigation
 
-## 🔧 Local Development
+##  Local Development
 Simply open `index.html` in your browser or use a local server:
 ```bash
 # Using Python
